@@ -126,10 +126,31 @@
         <p>Nước Việt Nam có quyền hưởng tự do và độc lập, và sự thật đã thành một nước tự do, độc lập. Toàn thể dân tộc Việt Nam quyết đem tất cả tinh thần và lực lượng, tính mạng và của cải để giữ vững quyền tự do, độc lập ấy.</p>
         <div class="footer">ĐỜI ĐỜI NHỚ ƠN BÁC HỒ VĨ ĐẠI</div>
     </div>
+    <audio id="bgMusic" autoplay loop style="display: none;">
+        <source src="BacHo.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+    <button id="playMusicBtn" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; background: #d32f2f; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 16px;">🔊</button>
     <script>
         const paragraphs = document.querySelectorAll('.container p');
         paragraphs.forEach((p, index) => {
             p.style.animationDelay = `${index * 0.3}s`;
+        });
+
+        const audio = document.getElementById('bgMusic');
+        const playBtn = document.getElementById('playMusicBtn');
+        let isPlaying = false;
+
+        playBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                playBtn.textContent = '🔊';
+                isPlaying = false;
+            } else {
+                audio.play();
+                playBtn.textContent = '🔇';
+                isPlaying = true;
+            }
         });
     </script>
 </body>
