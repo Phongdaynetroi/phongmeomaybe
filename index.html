@@ -3,131 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phong Toilet</title>
+    <title>Index</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-            background-size: 400% 400%;
-            animation: backgroundShift 10s ease infinite;
-            overflow-x: hidden;
-        }
-
-        @keyframes backgroundShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .scene {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
-        }
-
-        .scene:nth-child(1) { animation-delay: 0s; }
-        .scene:nth-child(2) { animation-delay: 2s; }
-        .scene:nth-child(3) { animation-delay: 4s; }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .scene h1 {
-            font-size: 3em;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: textGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes textGlow {
-            0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-            100% { text-shadow: 0 0 20px rgba(255,255,255,0.8), 2px 2px 4px rgba(0,0,0,0.5); }
-        }
-
-        .scene p {
-            font-size: 1.5em;
-            color: white;
             text-align: center;
-            max-width: 600px;
-            margin: 20px;
+            padding: 50px;
         }
-
-        .transition {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            animation: slideIn 1s ease-out forwards;
-            animation-delay: 1s;
-        }
-
-        @keyframes slideIn {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
-        }
-
         button {
             padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: rgba(255,255,255,0.8);
-            color: #333;
-            border: none;
-            border-radius: 5px;
+            font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-        }
-
-        button:hover {
-            background-color: rgba(255,255,255,1);
         }
     </style>
 </head>
 <body>
-    <div class="scene" id="scene1">
-        <div>
-            <h1>Welcome to Phong Toilet</h1>
-            <p>Experience the ultimate in cleanliness and comfort.</p>
-            <a href="skibidi.html"><button>Go to Skibidi</button></a>
-        </div>
-        <div class="transition"></div>
-    </div>
-    <div class="scene" id="scene2">
-        <div>
-            <h1>Our Services</h1>
-            <p>Premium facilities with modern amenities.</p>
-        </div>
-        <div class="transition"></div>
-    </div>
-    <div class="scene" id="scene3">
-        <div>
-            <h1>Contact Us</h1>
-            <p>Visit us today for the best experience.</p>
-        </div>
-    </div>
-    <script>
-        // Simple scroll-based transition effect
-        window.addEventListener('scroll', function() {
-            const scenes = document.querySelectorAll('.scene');
-            scenes.forEach(scene => {
-                const rect = scene.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    scene.style.opacity = '1';
-                } else {
-                    scene.style.opacity = '0';
-                }
-            });
-        });
-    </script>
+    <h1>Welcome</h1>
+    <p>Click the button to go to Skibidi page.</p>
+    <a href="skibidi.html"><button>Enter Skibidi</button></a>
 </body>
 </html>
