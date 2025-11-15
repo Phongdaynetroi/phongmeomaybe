@@ -2,24 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff0000, #cc0000, #ffcccc);
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .container {
             text-align: center;
-            padding: 50px;
+            animation: fadeIn 2s ease-in;
+        }
+        h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: slideInFromTop 1s ease-out;
+        }
+        p {
+            color: #ffeb3b;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeIn 2s ease-in 0.5s both;
         }
         button {
-            padding: 10px 20px;
-            font-size: 16px;
+            background-color: #ffff00;
+            border: 2px solid #ffeb3b;
+            color: black;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px;
             cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: bounceIn 1s ease-out 0.5s both;
+        }
+        button:hover {
+            background-color: #ffeb3b;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInFromTop {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .star {
+            position: absolute;
+            color: yellow;
+            font-size: 24px;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from {
+                top: -10px;
+                opacity: 1;
+            }
+            to {
+                top: 100vh;
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Welcome</h1>
-    <p>Click the button to go to Skibidi page.</p>
-    <a href="skibidi.html"><button>Enter Skibidi</button></a>
+    <div id="stars"></div>
+    <div class="container">
+        <h1>Chào mừng</h1>
+        <p>Khám phá Tuyên ngôn Độc lập của Hồ Chí Minh</p>
+        <a href="skibidi.html"><button>Đến Tuyên Ngôn Độc Lập</button></a>
+    </div>
+    <audio id="bgMusic" loop style="display: none;">
+        <source src="BacHo.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+    <button id="playMusicBtn" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; background: #d32f2f; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 16px;">🔊</button>
+    <script>
+        function createStar() {
+            const starsContainer = document.getElementById('stars');
+            if (starsContainer.children.length < 8) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.innerHTML = '★';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.fontSize = (Math.random() * 15 + 20) + 'px';
+                star.style.opacity = Math.random() * 0.4 + 0.6;
+                star.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                star.style.animationDelay = Math.random() * 0.5 + 's';
+                starsContainer.appendChild(star);
+                setTimeout(() => {
+                    if (star.parentNode) {
+                        star.remove();
+                    }
+                }, 10000);
+            }
+        }
+        setInterval(createStar, 500);
+
+        const audio = document.getElementById('bgMusic');
+        const playBtn = document.getElementById('playMusicBtn');
+        let isPlaying = false;
+
+        playBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                playBtn.textContent = '🔊';
+                isPlaying = false;
+            } else {
+                audio.play();
+                playBtn.textContent = '🔇';
+                isPlaying = true;
+            }
+        });
+    </script>
 </body>
 </html>
