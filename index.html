@@ -10,7 +10,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #ff0000, #cc0000, #ffcccc);
+            background-image: url('https://flagcdn.com/w320/vn.png');
+            background-size: cover;
+            background-repeat: no-repeat;
             margin: 0;
             font-family: 'Arial', sans-serif;
             overflow: hidden;
@@ -98,14 +100,14 @@
     <script>
         function createStar() {
             const starsContainer = document.getElementById('stars');
-            if (starsContainer.children.length < 8) {
+            if (starsContainer.children.length < 15) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 star.innerHTML = '★';
                 star.style.left = Math.random() * 100 + '%';
                 star.style.fontSize = (Math.random() * 15 + 20) + 'px';
                 star.style.opacity = Math.random() * 0.4 + 0.6;
-                star.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                star.style.animationDuration = (Math.random() * 2 + 3) + 's';
                 star.style.animationDelay = Math.random() * 0.5 + 's';
                 starsContainer.appendChild(star);
                 setTimeout(() => {
@@ -115,7 +117,7 @@
                 }, 10000);
             }
         }
-        setInterval(createStar, 500);
+        setInterval(createStar, 200);
     </script>
 </body>
 </html>
