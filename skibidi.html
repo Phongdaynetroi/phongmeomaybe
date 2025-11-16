@@ -1,164 +1,123 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tuyên Ngôn Độc Lập</title>
+    <title>Index</title>
     <style>
         body {
-            font-family: 'Times New Roman', serif;
-            background: #ff0000;
-            color: #333;
-            margin: 0;
-            padding: 20px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
+            background-image: url('https://images.hcmcpv.org.vn/res/news/2024/02/24-02-2024-ve-su-dung-co-dang-va-hinh-anh-co-dang-cong-san-viet-nam-FE119635-details.jpg?vs=24022024094023');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
         }
         .container {
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            text-align: justify;
-            line-height: 1.6;
-            font-size: 18px;
+            text-align: center;
+            animation: fadeIn 2s ease-in;
         }
         h1 {
-            text-align: center;
-            color: #d32f2f;
-            margin-bottom: 30px;
-            font-size: 28px;
+            color: white;
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: slideInFromTop 1s ease-out;
         }
         p {
-            margin-bottom: 20px;
+            color: #ffeb3b;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeIn 2s ease-in 0.5s both;
         }
-        .signature {
-            text-align: right;
-            margin-top: 40px;
+        button {
+            background-color: #ffff00;
+            border: 2px solid #ffeb3b;
+            color: black;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
             font-weight: bold;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: bounceIn 1s ease-out 0.5s both;
         }
-        .star {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            font-size: 300px;
-            color: yellow;
-            z-index: -1;
-            pointer-events: none;
-            animation: rotate 20s linear infinite;
-        }
-        @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        .container {
-            animation: fadeIn 2s ease-in;
+        button:hover {
+            background-color: #ffeb3b;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideInFromTop {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
-        h1 {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: fadeIn 2s ease-in;
-        }
-        p {
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            opacity: 0;
-            animation: fadeInUp 1s ease-out forwards;
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
         }
         .star {
-            text-shadow: 0 0 20px yellow, 0 0 40px yellow;
-        }
-        .footer {
-            text-align: center;
+            position: absolute;
+            color: yellow;
             font-size: 24px;
-            font-weight: bold;
-            margin-top: 30px;
-            color: #d32f2f;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: fadeIn 2s ease-in 10s forwards;
-            opacity: 0;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from {
+                top: -10px;
+                opacity: 1;
+            }
+            to {
+                top: 100vh;
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="star">★</div>
+    <div id="stars"></div>
     <div class="container">
-        <img src="https://inkythuatso.com/uploads/thumbnails/800/2023/03/hinh-anh-bac-ho-viet-di-chuc-1-06-08-08-02.jpg" alt="Ho Chi Minh" style="display: block; margin: 0 auto 20px; width: 200px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
-        <h1>TUYÊN NGÔN ĐỘC LẬP</h1>
-        <p>Hỡi đồng bào cả nước,</p>
-        <p>"Tất cả mọi người đều sinh ra có quyền bình đẳng. Tạo hóa cho họ những quyền không ai có thể xâm phạm được; trong những quyền ấy, có quyền được sống, quyền tự do và quyền mưu cầu hạnh phúc".</p>
-        <p>Lời bất hủ ấy ở trong bản Tuyên ngôn độc lập năm 1776 của nước Mỹ. Suy rộng ra, câu ấy có ý nghĩa là: tất cả các dân tộc trên thế giới đều sinh ra bình đẳng; dân tộc nào cũng có quyền sống, quyền sung sướng và quyền tự do.</p>
-        <p>Bản Tuyên ngôn nhân quyền và dân quyền của Cách mạng Pháp năm 1791 cũng nói:</p>
-        <p>"Người ta sinh ra tự do và bình đẳng về quyền lợi, và phải luôn luôn được tự do và bình đẳng về quyền lợi".</p>
-        <p>Đó là những lẽ phải không ai chối cãi được.</p>
-        <p>Thế mà hơn tám mươi năm nay, bọn thực dân Pháp lợi dụng lá cờ tự do, bình đẳng, bác ái, đến cướp đất nước ta, áp bức đồng bào ta. Hành động của chúng trái hẳn với nhân đạo và chính nghĩa.</p>
-        <p>Về chính trị, chúng tuyệt đối không cho nhân dân ta một chút tự do dân chủ nào.</p>
-        <p>Chúng thi hành những luật pháp dã man. Chúng lập ba chế độ khác nhau ở Trung, Nam, Bắc để ngăn cản việc thống nhất nước nhà của ta, để ngăn cản dân tộc ta đoàn kết.</p>
-        <p>Chúng lập ra nhà tù nhiều hơn trường học. Chúng thẳng tay chém giết những người yêu nước thương nòi của ta. Chúng tắm các cuộc khởi nghĩa của ta trong những bể máu.</p>
-        <p>Chúng ràng buộc dư luận, thi hành chính sách ngu dân.</p>
-        <p>Chúng dùng thuốc phiện, rượu cồn để làm cho nòi giống ta suy nhược.</p>
-        <p>Về kinh tế, chúng bóc lột dân ta đến tận xương tủy, khiến cho dân ta nghèo nàn, thiếu thốn, nước ta xơ xác, tiêu điều.</p>
-        <p>Chúng cướp không ruộng đất, hầm mỏ, nguyên liệu.</p>
-        <p>Chúng giữ độc quyền in giấy bạc, xuất cảng và nhập cảng.</p>
-        <p>Chúng đặt ra hàng trăm thứ thuế vô lý, làm cho dân ta, nhất là dân cày và dân buôn, trở nên bần cùng.</p>
-        <p>Chúng không cho các nhà tư sản ta ngóc đầu lên. Chúng bóc lột công nhân ta một cách vô cùng tàn nhẫn.</p>
-        <p>Mùa thu năm 1940, phát-xít Nhật đến xâm lăng Đông - Dương để mở thêm căn cứ đánh Đồng minh, thì bọn thực dân Pháp quỳ gối đầu hàng, mở cửa nước ta rước Nhật. Từ đó dân ta chịu hai tầng xiềng xích: Pháp và Nhật. Từ đó dân ta càng cực khổ, nghèo nàn. Kết quả là cuối năm ngoái sang đầu năm nay, từ Quảng trị đến Bắc kỳ hơn hai triệu đồng bào ta bị chết đói.</p>
-        <p>Ngày 9 tháng 3 năm nay, Nhật tước khí giới của quân đội Pháp. Bọn thực dân Pháp hoặc bỏ chạy hoặc đầu hàng. Thế là chẳng những chúng không "bảo hộ" được ta, trái lại, trong 5 năm, chúng đã bán nước ta hai lần cho Nhật.</p>
-        <p>Trước ngày mồng 9 tháng 3, biết bao lần Việt minh đã kêu gọi người Pháp liên minh để chống Nhật. Bọn thực dân Pháp đã không đáp ứng, lại thẳng tay khủng bố Việt minh hơn nữa.</p>
-        <p>Thậm chí đến khi thua chạy, chúng còn nhẫn tâm giết nốt số đông tù chính trị ở Yên Bái và Cao Bằng.</p>
-        <p>Tuy vậy, đối với nước Pháp, đồng bào ta vẫn giữ một thái độ khoan hồng và nhân đạo. Sau cuộc biến động ngày mồng 9 tháng 3, Việt minh đã giúp cho nhiều người Pháp chạy qua biên thùy, lại cứu cho nhiều người Pháp ra khỏi nhà giam Nhật, và bảo vệ tính mạng và tài sản cho họ.</p>
-        <p>Sự thật là từ mùa thu năm 1940, nước ta đã thành thuộc địa của Nhật, chứ không phải thuộc địa của Pháp nữa. Khi Nhật hàng Đồng minh thì nhân dân cả nước ta đã nổi dậy giành chính quyền lập nên nước Việt Nam Dân chủ Cộng hòa.</p>
-        <p>Sự thật là dân ta đã lấy lại nước Việt Nam từ tay Nhật, chứ không phải từ tay Pháp.</p>
-        <p>Pháp chạy, Nhật hàng, vua Bảo Đại thoái vị. Dân ta đã đánh đổ các xiềng xích thực dân gần một trăm năm nay để gây dựng nên nước Việt Nam độc lập. Dân ta lại đánh đổ chế độ quân chủ mấy mươi thế kỷ mà lập nên chế độ dân chủ cộng hòa.</p>
-        <p>Bởi thế cho nên, chúng tôi, Lâm thời Chính phủ của nước Việt Nam mới, đại biểu cho toàn dân Việt Nam, tuyên bố thoát ly hẳn quan hệ với Pháp, xóa bỏ hết những hiệp ước mà Pháp đã ký về nước Việt Nam, xóa bỏ tất cả mọi đặc quyền của Pháp trên đất nước Việt Nam.</p>
-        <p>Toàn dân Việt Nam, trên dưới một lòng, kiên quyết chống lại âm mưu của bọn thực dân Pháp.</p>
-        <p>Chúng tôi tin rằng các nước Đồng minh đã công nhận những nguyên tắc dân tộc bình đẳng ở các Hội nghị Tê-hê-răng và Cựu-kim-sơn, quyết không thể không công nhận quyền độc lập của dân Việt Nam.</p>
-        <p>Một dân tộc đã gan góc chống ách nô lệ của Pháp hơn tám mươi năm nay, một dân tộc đã gan góc đứng về phe Đồng minh chống phát-xít mấy năm nay, dân tộc đó phải được tự do ! Dân tộc đó phải được độc lập !</p>
-        <p>Vì những lẽ trên, chúng tôi, Chính phủ Lâm thời của nước Việt Nam Dân chủ Cộng hòa, trịnh trọng tuyên bố với thế giới rằng:</p>
-        <p>Nước Việt Nam có quyền hưởng tự do và độc lập, và sự thật đã thành một nước tự do, độc lập. Toàn thể dân tộc Việt Nam quyết đem tất cả tinh thần và lực lượng, tính mạng và của cải để giữ vững quyền tự do, độc lập ấy.</p>
-        <div class="footer">
-            <svg width="50" height="30" viewBox="0 0 3 2" style="vertical-align: middle; margin-right: 10px;">
-                <rect width="3" height="2" fill="#DA0011"/>
-                <polygon points="1.5,0.3 1.65,0.8 2.25,0.8 1.85,1.2 2.05,1.7 1.5,1.4 0.95,1.7 1.15,1.2 0.75,0.8 1.35,0.8" fill="#FFFF00"/>
-            </svg>
-            ĐỜI ĐỜI NHỚ ƠN BÁC HỒ VĨ ĐẠI
-            <img src="https://images.hcmcpv.org.vn/res/news/2024/02/24-02-2024-ve-su-dung-co-dang-va-hinh-anh-co-dang-cong-san-viet-nam-FE119635-details.jpg?vs=24022024094023" alt="Cờ Đảng" style="width: 50px; height: 30px; vertical-align: middle; margin-left: 10px;">
-        </div>
+        <h1>Chào mừng</h1>
+        <p>Khám phá Tuyên ngôn Độc lập của Hồ Chí Minh</p>
+        <a href="skibidi.html"><button>Đến Tuyên Ngôn Độc Lập</button></a>
     </div>
-    <audio id="bgMusic" autoplay loop style="display: none;">
-        <source src="BacHo.mp3" type="audio/mpeg">
-        Trình duyệt của bạn không hỗ trợ thẻ audio.
-    </audio>
-    <button id="playMusicBtn" style="position: fixed; bottom: 20px; right: 20px; padding: 10px; background: #d32f2f; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 16px;">🔊</button>
     <script>
-        const paragraphs = document.querySelectorAll('.container p');
-        paragraphs.forEach((p, index) => {
-            p.style.animationDelay = `${index * 0.3}s`;
-        });
-
-        const audio = document.getElementById('bgMusic');
-        const playBtn = document.getElementById('playMusicBtn');
-        let isPlaying = false;
-
-        playBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                audio.pause();
-                playBtn.textContent = '🔊';
-                isPlaying = false;
-            } else {
-                audio.play();
-                playBtn.textContent = '🔇';
-                isPlaying = true;
+        function createStar() {
+            const starsContainer = document.getElementById('stars');
+            if (starsContainer.children.length < 15) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.innerHTML = '★';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.fontSize = (Math.random() * 15 + 20) + 'px';
+                star.style.opacity = Math.random() * 0.4 + 0.6;
+                star.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                star.style.animationDelay = Math.random() * 0.5 + 's';
+                starsContainer.appendChild(star);
+                setTimeout(() => {
+                    if (star.parentNode) {
+                        star.remove();
+                    }
+                }, 10000);
             }
-        });
+        }
+        setInterval(createStar, 200);
     </script>
 </body>
 </html>
